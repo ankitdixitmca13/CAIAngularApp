@@ -5,14 +5,19 @@ export const navItems: INavData[] = [
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
+    // badge: {
+    //   variant: 'info',
+    //   text: 'NEW'
+    // }
   },
   {
     name: 'Investment',
     url: '/investment',
+    icon: 'icon-drop'
+  },
+  {
+    name: 'Transaction',
+    url: '/transaction',
     icon: 'icon-drop'
   },
   {
