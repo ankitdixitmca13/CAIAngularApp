@@ -89,6 +89,10 @@ export const routes: Routes = [
         loadChildren: () => import('./views/transaction/transaction.module').then(m => m.TransactionModule)
       },
       {
+        path: 'profile',
+        loadChildren: () => import('./views/profile/profile.module').then(m => m.ProfileModule)
+      },
+      {
         path: 'icons',
         loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
       },

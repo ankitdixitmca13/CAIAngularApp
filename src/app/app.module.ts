@@ -40,7 +40,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Import services
 import { UserService } from './services/user.service';
@@ -67,7 +67,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,

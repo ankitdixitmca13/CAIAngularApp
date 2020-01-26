@@ -26,8 +26,8 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
         <div class="dropdown-header text-center"><strong>Account</strong></div>       
-        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-        <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+        <a class="dropdown-item" routerLink='/profile' routerLinkActive='active'><i class="fa fa-user"></i> Profile</a>
+        <a class="dropdown-item" routerLink='/login' routerLinkActive='active'><i class="fa fa-lock"></i> Logout</a>
       </div>
     </li>
   </ul>
@@ -35,7 +35,7 @@
 <div class="app-body">
   <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
     <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
-    <app-sidebar-minimizer></app-sidebar-minimizer>
+   
   </app-sidebar>
   <!-- Main content -->
   <main class="main">
@@ -59,6 +59,6 @@
  
 </div>
 <app-footer>
-  <span><a href="">FundApp</a> &copy; 2020 Capital Advisor India.</span>
+  <span><a href="">FundsApp</a> &copy; 2020 Capital Advisor India.</span>
   <span class="ml-auto">Powered by <a href="">Aviop Pvt Ltd</a></span>
 </app-footer>
