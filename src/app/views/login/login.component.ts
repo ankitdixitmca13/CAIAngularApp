@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,9 +26,11 @@ export class LoginComponent {
         localStorage.setItem('token', res.token);
         this.router.navigateByUrl('/dashboard');
       },
-      err => {
+      (err:HttpErrorResponse) => {
         if (err.status == 400)
-          this.toastr.error('Incorrect username or password.', 'Authentication failed.');
+        {
+          this.toastr.error(err.error.message);
+        }
         else
           console.log(err);
       }

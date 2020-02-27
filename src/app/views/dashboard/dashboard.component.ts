@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
   radioModel: string = 'Month';
-
+  constructor( private toastr: ToastrService) { }
+  tokenclick() {
+    console.log("token");
+    this.toastr.error("test");
+     
+  }
   // lineChart1
   public lineChart1Data: Array<any> = [
     {

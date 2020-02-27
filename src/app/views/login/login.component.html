@@ -22,11 +22,11 @@
                     </div>
                     <input type="password" class="form-control" placeholder="Password"
                     #Password="ngModel" name="Password" [(ngModel)]="formModel.Password" autocomplete="current-password" required>
+                    
                   </div>
                   <div class="row">
                     <div class="col-6">
-                      <!-- <button type="button" routerLink='/dashboard'  routerLinkActive='active' class="btn btn-primary px-4">Login</button> -->
-                       <button type="button" [disabled]="form.invalid" class="btn btn-primary px-4">Login</button>
+                       <input type="submit" [disabled]="form.invalid" class="btn btn-primary px-4" value="Login">
                     </div>
                     <div class="col-6 text-right">
                       <button type="button" class="btn btn-link px-0">Forgot password?</button>

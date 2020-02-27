@@ -9,7 +9,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class UserService {
 selecteduser:User;
 userlist:User[];
-readonly rootURL ="http://localhost:44399/api";
+readonly rootURL ="http://localhost:63859/api";
   constructor(private fb: FormBuilder,private http : HttpClient) {
     console.log("user service cons");
    }
@@ -39,11 +39,11 @@ readonly rootURL ="http://localhost:44399/api";
     console.log("user service post"+usr);
      var reqHeader = new HttpHeaders({'No-Auth':'True'});
       return this.http.post(this.rootURL+'/User',usr,{headers:reqHeader}); 
-     
-       
     }
-    login(formData) {
-      return this.http.post(this.rootURL + '/ApplicationUser/Login', formData);
+   login(formData) {
+      console.log("click on login");
+      console.log(formData);
+      return this.http.post(this.rootURL + '/user/authenticate', formData);
     }
     userAuthentication(userName, password) {
       var data = "username=" + userName + "&password=" + password + "&grant_type=password";
@@ -62,8 +62,6 @@ readonly rootURL ="http://localhost:44399/api";
     putUser(usr : User){
       console.log("user service put");
         return this.http.put(this.rootURL+'/User/'+usr.Id,usr);
-     
-       
      }
      deleteUser(id : number){
       console.log("user service delete");
