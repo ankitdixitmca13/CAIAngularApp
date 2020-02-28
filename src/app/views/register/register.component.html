@@ -14,10 +14,13 @@
               </div>
             </div>
             <div class="card p-4">
+              <div class=" text-center mb-1">
+                <img src="assets/img/brand/logo-icon.png">
+              </div>
               <div class="card-body">
                 <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
-                  <h1>Sign Up</h1>
-                  <p class="text-muted">Create your account</p>
+                  <!-- <h1>Sign Up</h1>
+                  <p class="text-muted">Create your account</p> -->
                   <!-- <div class="input-group mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-user"></i></span>
@@ -26,22 +29,22 @@
                   </div> -->
                   <div class="input-group mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-user"></i></span>
+                      <span class="input-group-text"><i class="icon-envelope"></i></span>
                     </div>
                     <input type="text" class="form-control" #EmailId="ngModel" name="EmailId" [pattern]="emailPattern" [(ngModel)]="formModel.EmailId" placeholder="EmailId" autocomplete="EmailId" required>
                   </div>
-                  <div *ngIf="EmailId.errors" [ngClass] = "invalid-feedback">  
-                    <div *ngIf="EmailId.errors.pattern">  
+                  <!-- <div *ngIf="EmailId.errors" [ngClass] = "invalid-feedback">   -->
+                    <div *ngIf="EmailId.errors && EmailId.errors.pattern" [ngClass] = "'validation-message'">  
                       EmailId not valid.  
                     </div>   
-                  </div>  
+                  <!-- </div>   -->
                   <div class="input-group mb-2">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-user"></i></span>
+                      <span class="input-group-text"><i class="icon-phone"></i></span>
                     </div>
                     <input type="text" class="form-control" #MobileNo="ngModel" name="MobileNo" [pattern]="mobNumberPattern" maxlength="10" [(ngModel)]="formModel.MobileNo" placeholder="MobileNo" autocomplete="MobileNo" required>
                   </div>
-                  <div *ngIf="MobileNo.errors" [ngClass] = "invalid-feedback">  
+                  <div *ngIf="MobileNo.errors" [ngClass] = "'validation-message'">  
                     <div *ngIf="MobileNo.errors.pattern">  
                       Mobile number not valid.  
                     </div>   
@@ -52,7 +55,7 @@
                     </div>
                     <input type="password" class="form-control" #Password="ngModel" name="Password" [pattern]="passwordPattern" [(ngModel)]="formModel.Password" placeholder="Password" autocomplete="current-password" required>
                   </div>
-                  <div *ngIf="Password.errors" [ngClass] = "invalid-feedback">  
+                  <div *ngIf="Password.errors" [ngClass] = "'validation-message'">  
                     <div *ngIf="Password.errors.pattern">  
                       Password should be atleast 8 characters long
                       and should contain one number,one character and one special
@@ -65,7 +68,7 @@
                     </div>
                     <input type="password" class="form-control" pattern="{{ Password.value }}"  #ConfirmPassword="ngModel" name="Confirm Password" [(ngModel)]="formModel.ConfirmPassword" placeholder="Confirm Password" autocomplete="confirm-password" required>
                   </div>
-                  <div *ngIf="ConfirmPassword.errors" [ngClass] = "invalid-feedback">  
+                  <div *ngIf="ConfirmPassword.errors" [ngClass] = "'validation-message'">  
                     <div *ngIf="ConfirmPassword.errors.pattern">  
                      Password & Confirm Password does not match.
                     </div>   

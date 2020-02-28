@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'register.component.html'
@@ -22,7 +23,7 @@ export class RegisterComponent {
   mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$";   
   passwordPattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$";
 
-  constructor(private service:UserService,private toastr: ToastrService) { 
+  constructor(private service:UserService,private toastr: ToastrService, private router: Router) { 
     console.log("register construtor");
   }
 
@@ -53,7 +54,7 @@ export class RegisterComponent {
     this.service.postUser(form.value).subscribe(res => {
       this.toastr.success('Inserted successfully', 'User.Register');
       this.resetForm(form);
-      this.service.getUser();
+      this.router.navigateByUrl('/login');
     },
     (err:HttpErrorResponse) => {
       if (err.status == 400)

@@ -12,8 +12,15 @@ import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'Login Page'
+    }
+  },
+  {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     //canActivate:[AuthGuard],
     pathMatch: 'full',
   },
@@ -41,13 +48,6 @@ export const routes: Routes = [
     component: P500Component,
     data: {
       title: 'Page 500'
-    }
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    data: {
-      title: 'Login Page'
     }
   },
   {
