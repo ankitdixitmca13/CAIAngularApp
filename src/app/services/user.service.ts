@@ -68,5 +68,10 @@ readonly rootURL ="http://localhost:63859/api";
         return this.http.delete(this.rootURL+'/User/'+id);
       
      }
-
+     confirmEmail(emailModel)
+     {
+       console.log("confirm email post"+emailModel);
+       var reqHeader = new HttpHeaders({'No-Auth':'True'});
+        return this.http.post(this.rootURL+'/user/confirmemail',emailModel); 
+      }
 }

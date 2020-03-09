@@ -8,6 +8,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { ConfirmEmailComponent } from './views/confirmemail/confirmemail.component';
 import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
@@ -58,6 +59,13 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'confirmemail/:emailKey',
+    component: ConfirmEmailComponent,
+    data: {
+      title: 'ConfirmEmail Page'
+    }
+  },
+  {
     path: '',
     component: DefaultLayoutComponent,
     data: {
@@ -89,9 +97,13 @@ export const routes: Routes = [
         loadChildren: () => import('./views/transaction/transaction.module').then(m => m.TransactionModule)
       },
       {
+        path: 'bank',
+        loadChildren: () => import('./views/bank/bank.module').then(m => m.InvestmentModule)
+      },
+      {
         path: 'profile',
         loadChildren: () => import('./views/profile/profile.module').then(m => m.ProfileModule)
-      },
+      }
       // {
       //   path: 'icons',
       //   loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)

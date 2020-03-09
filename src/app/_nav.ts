@@ -21,10 +21,15 @@ export const navItems: INavData[] = [
     icon: 'icon-drop'
   },
   {
-    name: 'Profile',
-    url: '/profile',
+    name: 'BankInfo',
+    url: '/bank',
     icon: 'icon-drop'
   },
+  // {
+  //   name: 'Profile',
+  //   url: '/profile',
+  //   icon: 'icon-drop'
+  // },
   // {
   //   title: true,
   //   name: 'Theme'
