@@ -23,8 +23,13 @@ export class LoginComponent {
   onSubmit(form: NgForm) {
     this.service.login(form.value).subscribe(
       (res: any) => {
+        console.log(res);
         localStorage.setItem('token', res.token);
-        this.router.navigateByUrl('/dashboard');
+        localStorage.setItem('userId', res.id);
+        console.log(res.id);
+        alert(localStorage.getItem('userId'));
+        //this.router.navigate(['/confirmphone'],{ queryParams: { userId:'123'}});
+        this.router.navigateByUrl('/confirmphone');
       },
       (err:HttpErrorResponse) => {
         if (err.status == 400)

@@ -9,6 +9,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ConfirmEmailComponent } from './views/confirmemail/confirmemail.component';
+import { ConfirmPhoneNoComponent } from './views/confirmphoneno/confirmphone.component';
 import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
@@ -56,6 +57,13 @@ export const routes: Routes = [
     component: RegisterComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: 'confirmphone',
+    component: ConfirmPhoneNoComponent,
+    data: {
+      title: 'ConfirmPhoneNo Page'
     }
   },
   {

@@ -69,7 +69,7 @@ export class RegisterComponent {
     this.service.putUser(form.value).subscribe(res => {
       this.toastr.info('Updated successfully', 'User.Register');
       this.resetForm(form);
-      this.service.getUser();
+      this.service.getUsers();
     },
     (err:HttpErrorResponse) => {
       if (err.status == 400)

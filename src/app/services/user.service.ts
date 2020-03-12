@@ -50,11 +50,15 @@ readonly rootURL ="http://localhost:63859/api";
       var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
       return this.http.post(this.rootURL + '/token', data, { headers: reqHeader });
     }
-    getUser(){
+    getUsers(){
       console.log("user service get");
         this.http.get(this.rootURL+'/User')
         .toPromise().then(res => this.userlist = res as User[]);
      
+    }
+    getUser(userId:number){
+      console.log("user service get");
+       return this.http.get(this.rootURL+'/User/'+userId);
     }
     getUserClaims(){
       return  this.http.get(this.rootURL+'/User');
@@ -73,5 +77,11 @@ readonly rootURL ="http://localhost:63859/api";
        console.log("confirm email post"+emailModel);
        var reqHeader = new HttpHeaders({'No-Auth':'True'});
         return this.http.post(this.rootURL+'/user/confirmemail',emailModel); 
+      }
+      generateOtp(phoneNoModel)
+     {
+       console.log("generate otp post"+phoneNoModel);
+       var reqHeader = new HttpHeaders({'No-Auth':'True'});
+        return this.http.post(this.rootURL+'/user/generateotp',phoneNoModel); 
       }
 }

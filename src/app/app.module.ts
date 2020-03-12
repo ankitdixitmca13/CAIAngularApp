@@ -21,6 +21,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ConfirmEmailComponent } from './views/confirmemail/confirmemail.component';
+import { ConfirmPhoneNoComponent } from './views/confirmphoneno/confirmphone.component';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -78,7 +79,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    ConfirmPhoneNoComponent
   ],
   providers: [{
     provide: LocationStrategy,
