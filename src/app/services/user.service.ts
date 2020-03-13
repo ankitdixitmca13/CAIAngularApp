@@ -84,4 +84,16 @@ readonly rootURL ="http://localhost:63859/api";
        var reqHeader = new HttpHeaders({'No-Auth':'True'});
         return this.http.post(this.rootURL+'/user/generateotp',phoneNoModel); 
       }
+      validateOtp(phoneNoModel)
+      {
+        console.log("validate otp post"+phoneNoModel);
+        var reqHeader = new HttpHeaders({'No-Auth':'True'});
+         return this.http.post(this.rootURL+'/user/validateotp',phoneNoModel); 
+       }
+       updatePanNo(panNoModel)
+       {
+         console.log("update pan no post"+panNoModel);
+         var reqHeader = new HttpHeaders({'No-Auth':'True'});
+          return this.http.post(this.rootURL+'/user/updatepan',panNoModel); 
+        }
 }

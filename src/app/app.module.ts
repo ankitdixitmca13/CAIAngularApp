@@ -22,6 +22,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ConfirmEmailComponent } from './views/confirmemail/confirmemail.component';
 import { ConfirmPhoneNoComponent } from './views/confirmphoneno/confirmphone.component';
+import { ConfirmPanNoComponent } from './views/confirmpanno/confirmpanno.component';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -80,7 +81,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     LoginComponent,
     RegisterComponent,
     ConfirmEmailComponent,
-    ConfirmPhoneNoComponent
+    ConfirmPhoneNoComponent,
+    ConfirmPanNoComponent
   ],
   providers: [{
     provide: LocationStrategy,

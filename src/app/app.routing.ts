@@ -10,6 +10,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ConfirmEmailComponent } from './views/confirmemail/confirmemail.component';
 import { ConfirmPhoneNoComponent } from './views/confirmphoneno/confirmphone.component';
+import { ConfirmPanNoComponent } from './views/confirmpanno/confirmpanno.component';
 import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
@@ -64,6 +65,13 @@ export const routes: Routes = [
     component: ConfirmPhoneNoComponent,
     data: {
       title: 'ConfirmPhoneNo Page'
+    }
+  },
+  {
+    path: 'confirmpanno',
+    component: ConfirmPanNoComponent,
+    data: {
+      title: 'ConfirmPanNo Page'
     }
   },
   {

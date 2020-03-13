@@ -27,9 +27,16 @@ export class LoginComponent {
         localStorage.setItem('token', res.token);
         localStorage.setItem('userId', res.id);
         console.log(res.id);
-        alert(localStorage.getItem('userId'));
-        //this.router.navigate(['/confirmphone'],{ queryParams: { userId:'123'}});
-        this.router.navigateByUrl('/confirmphone');
+        if(res.isEmailVerified)
+        {
+          alert(res.isMobileNoVerified);
+          if(!res.isMobileNoVerified)
+           this.router.navigateByUrl('/confirmphone');
+          else if(!res.isPanNoVerified)
+           this.router.navigateByUrl('/confirmpanno');
+           else 
+           this.router.navigateByUrl('/dashboard');
+        }
       },
       (err:HttpErrorResponse) => {
         if (err.status == 400)

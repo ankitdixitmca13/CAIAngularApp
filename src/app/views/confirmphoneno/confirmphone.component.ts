@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-confirmphone',
@@ -15,7 +17,7 @@ export class ConfirmPhoneNoComponent {
     PhoneNo: '',
     Otp: ''
   }
-  constructor(private service: UserService, private toastr: ToastrService, private activatedRoute: ActivatedRoute) {
+  constructor(private service: UserService, private toastr: ToastrService, private router: Router) {
     console.log('Called phone Constructor');
   }
 
@@ -37,7 +39,6 @@ export class ConfirmPhoneNoComponent {
       )
   }
   generateOtp(res) {
-    this.formModel.UserId = res.id;
     this.formModel.PhoneNo = res.mobileNo;
     console.log(this.formModel);
     this.service.generateOtp(this.formModel).subscribe
@@ -52,5 +53,22 @@ export class ConfirmPhoneNoComponent {
             console.log(err);
         }
       )
+  }
+  onSubmit(form: NgForm) {
+    console.log(this.formModel);
+    this.service.validateOtp(this.formModel).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.router.navigateByUrl('/confirmpanno');
+      },
+      (err:HttpErrorResponse) => {
+        if (err.status == 400)
+        {
+          this.toastr.error(err.error.message);
+        }
+        else
+          console.log(err);
+      }
+    );
   }
 }
