@@ -10,18 +10,17 @@
                     <img src="assets/img/brand/logo-icon.png">
                   </div>
                   <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
-                    <!-- <h1>Login</h1> -->
-                    <!-- <p class="text-muted">Sign In to your account</p> -->
+                    <p class="text-muted">Pan no details</p>
                     <div class="input-group mb-3">
                       <input type="text" class="form-control"  placeholder="PanNo"
-                      #PanNo="ngModel" name="PanNo" [(ngModel)]="formModel.PanNo" autocomplete="PanNo" required>
+                      #PanNo="ngModel" name="PanNo" [pattern]="panPattern" [(ngModel)]="formModel.PanNo" ngp autocomplete="PanNo" required>
                     </div>
+                    <div *ngIf="PanNo.errors && PanNo.errors.pattern" [ngClass] = "'validation-message'">  
+                      #PAN invalid.  
+                    </div>   
                     <div class="row">
                       <div class="col-6">
                          <input type="submit" [disabled]="form.invalid" class="btn btn-primary px-4" value="Submit">
-                      </div>
-                      <div class="col-6 text-right">
-                        <button type="button" class="btn btn-link px-0">Resent OTP</button>
                       </div>
                     </div>
                   </form>

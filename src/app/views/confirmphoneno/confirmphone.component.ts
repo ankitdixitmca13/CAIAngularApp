@@ -27,7 +27,8 @@ export class ConfirmPhoneNoComponent {
     this.service.getUser(this.formModel.UserId).subscribe
       (
         (res: any) => {
-          this.generateOtp(res);
+          this.formModel.PhoneNo = res.mobileNo;
+          this.generateOtp();
         },
         (err: HttpErrorResponse) => {
           if (err.status == 400) {
@@ -38,8 +39,11 @@ export class ConfirmPhoneNoComponent {
         }
       )
   }
-  generateOtp(res) {
-    this.formModel.PhoneNo = res.mobileNo;
+  reSendOtp()
+  {
+    this.generateOtp();
+  }
+  generateOtp() {
     console.log(this.formModel);
     this.service.generateOtp(this.formModel).subscribe
       (

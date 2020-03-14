@@ -14,6 +14,8 @@ export class ConfirmPanNoComponent {
     UserId: 0,
     PanNo: ''
   }
+  panPattern = "^[A-Za-z]{5}\d{4}[A-Za-z]{1}$"; 
+
   constructor(private service: UserService, private toastr: ToastrService, private router: Router) {
     console.log('Called pan Constructor');
   }
